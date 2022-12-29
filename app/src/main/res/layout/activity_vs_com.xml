@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VsComActivity">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="Logo Aplikasi Utama"
+        app:srcCompat="@drawable/splash_screen1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_player_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/player_1"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardBatu1"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/batuPlayer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/batu_player_1"
+
+                    app:srcCompat="@drawable/batu" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardGunting1"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/guntingPlayer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/gunting_player_1"
+                    app:srcCompat="@drawable/gunting" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardKertas1"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/kertasPlayer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/kertas_player_1"
+                    app:srcCompat="@drawable/kertas" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:textAlignment="center">
+
+            <TextView
+                android:id="@+id/textMiddle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VS"
+                android:textAlignment="center"
+                android:textColor="#E82E2E"
+                android:textSize="44sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_player_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/computer"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardBatu2"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/batuPlayer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/batu_player_1"
+
+                    app:srcCompat="@drawable/batu" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardGunting2"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/guntingPlayer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/gunting_player_1"
+                    app:srcCompat="@drawable/gunting" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardKertas2"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="10dp">
+
+                <ImageView
+                    android:id="@+id/kertasPlayer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@string/kertas_player_1"
+                    app:srcCompat="@drawable/kertas" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_refresh"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:contentDescription="@string/icon_refresh"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/refresh" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

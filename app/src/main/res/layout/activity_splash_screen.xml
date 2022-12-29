@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SplashScreenActivity">
+
+    <ImageView
+        android:id="@+id/ivSplash1"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/kertas_batu_gunting_text"
+        app:srcCompat="@drawable/splash_screen1"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/ivSplash2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@string/icon_kertas_batu_gunting"
+        app:srcCompat="@drawable/splash_screen2" />
+</LinearLayout>

@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">ChallengeChapter6</string>
+    <string name="kertas_batu_gunting_text">kertas_batu_gunting_text</string>
+    <string name="icon_kertas_batu_gunting">icon_kertas_batu_gunting</string>
+    <string name="slider_on_boarding">Slider On Boarding</string>
+    <string name="slider_1">"Bermain suit melawan sesama pemain"</string>
+    <string name="slider_2">"Bermain suit melawan komputer"</string>
+    <string name="slider_3">"Mohon Registrasi Terlebih Dahulu,"</string>
+    <string name="slider_desk_1">"Selamat datang di Aplikasi Kertas Gunting Batu"</string>
+    <string name="slider_desk_2">"Tersedia 2 mode, vs computer dan vs player 2"</string>
+    <string name="selamat_datang">Mohon Registrasi Terlebih Dahulu,</string>
+    <string name="batu_player_1">Batu player 1</string>
+    <string name="gunting_player_1">Gunting player 1</string>
+    <string name="kertas_player_1">Kertas player 1</string>
+    <string name="icon_refresh">Icon Refresh</string>
+    <string name="computer">Computer</string>
+    <string name="player_1">Player 1</string>
+
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="e_mail">Email</string>
+    <string name="tag">Let\'s join us and \nBuild your relationship with others</string>
+    <string name="swipe_right_for_login">Swipe Right for Login</string>
+    <string name="register">Register</string>
+    <string name="re_type_password">Re-type Password</string>
+    <string name="your_name">Full Name</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_show_player">ShowPlayerActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="add_player">Tambah Player</string>
+    <string name="btn_edit">Button Edit</string>
+    <string name="btn_hapus">Button Hapus</string>
+</resources>
