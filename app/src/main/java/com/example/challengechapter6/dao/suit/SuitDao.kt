@@ -1,7 +1,6 @@
-package com.example.challengechapter6.model.suit
+package com.example.challengechapter6.dao.suit
 
 import androidx.room.*
-import com.example.challengechapter6.model.player.PlayerEntity
 
 @Dao
 interface SuitDao {

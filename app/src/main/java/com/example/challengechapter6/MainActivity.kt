@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var onBoardingScreen: SharedPreferences
     private lateinit var playerDetail: HashMap<String, String?>
     private lateinit var playerName: String
+    private lateinit var playerID: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         playerDetail = sessionManager.getPlayerDetail()
         playerName = playerDetail.get(sessionManager.NAME).toString()
+        playerID = playerDetail.get(sessionManager.ID).toString()
 
         binding.tvVsPlayer.text = playerName + " VS Pemain"
         binding.tvVsCom.text = playerName + " VS COM"
@@ -61,12 +63,12 @@ class MainActivity : AppCompatActivity() {
         })
 
         binding.cvVsPlayer.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, VsPlayerActivity::class.java).putExtra("valName", playerName))
+            startActivity(Intent(this, VsPlayerActivity::class.java).putExtra("valName", playerName).putExtra("valID", playerID))
             finish()
         })
 
         binding.cvVsCom.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, VsComActivity::class.java).putExtra("valName", playerName))
+            startActivity(Intent(this, VsComActivity::class.java).putExtra("valName", playerName).putExtra("valID", playerID))
             finish()
         })
 

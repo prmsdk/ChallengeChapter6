@@ -10,8 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.challengechapter6.R
-import com.example.challengechapter6.model.AppDatabase
-import com.example.challengechapter6.model.player.PlayerEntity
+import com.example.challengechapter6.dao.AppDatabase
+import com.example.challengechapter6.dao.player.PlayerEntity
 import com.example.challengechapter6.player.ui.EditPlayerActivity
 import com.example.challengechapter6.player.ui.ShowPlayerActivity
 import kotlinx.coroutines.GlobalScope

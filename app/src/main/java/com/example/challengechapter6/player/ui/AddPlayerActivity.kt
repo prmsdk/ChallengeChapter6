@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
-import com.example.challengechapter6.LoginActivity
-import com.example.challengechapter6.R
 import com.example.challengechapter6.databinding.ActivityAddPlayerBinding
-import com.example.challengechapter6.model.AppDatabase
-import com.example.challengechapter6.model.player.PlayerEntity
+import com.example.challengechapter6.dao.AppDatabase
+import com.example.challengechapter6.dao.player.PlayerEntity
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async

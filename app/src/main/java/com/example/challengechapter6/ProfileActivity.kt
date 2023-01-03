@@ -8,8 +8,8 @@ import android.view.View
 import android.widget.Toast
 import com.example.challengechapter6.databinding.ActivityProfileBinding
 import com.example.challengechapter6.helper.SessionManager
-import com.example.challengechapter6.model.AppDatabase
-import com.example.challengechapter6.model.player.PlayerEntity
+import com.example.challengechapter6.dao.AppDatabase
+import com.example.challengechapter6.dao.player.PlayerEntity
 import com.example.challengechapter6.player.ui.ShowPlayerActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -20,6 +20,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var sessionManager: SessionManager
     var mDb: AppDatabase? = null
     lateinit var email: String
+    private var valID: String = ""
     private lateinit var objectPlayer: PlayerEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,11 +37,16 @@ class ProfileActivity : AppCompatActivity() {
             null, "", "", ""
         )
         email = sessionManager.getPlayerDetail()[sessionManager.EMAIL].toString()
+        valID = sessionManager.getPlayerDetail()[sessionManager.ID].toString()
 
         getData()
 
         binding.btnShowAll.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, ShowPlayerActivity::class.java))
+        })
+
+        binding.btnHistory.setOnClickListener(View.OnClickListener {
+            startActivity(Intent(this, HistoryActivity::class.java).putExtra("valID", valID))
         })
     }
 

@@ -1,35 +1,35 @@
-package com.example.challengechapter6.player.ui
+package com.example.challengechapter6
 
 import android.content.Intent
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.challengechapter6.ProfileActivity
-import com.example.challengechapter6.databinding.ActivityShowPlayerBinding
-import com.example.challengechapter6.helper.ShowPlayerAdapter
 import com.example.challengechapter6.dao.AppDatabase
+import com.example.challengechapter6.databinding.ActivityHistoryBinding
+import com.example.challengechapter6.helper.ShowHistoryAdapter
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class ShowPlayerActivity : AppCompatActivity() {
+class HistoryActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityShowPlayerBinding
+    private lateinit var binding: ActivityHistoryBinding
     private var mDb : AppDatabase? = null
+    var valID: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityShowPlayerBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding = ActivityHistoryBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         supportActionBar?.hide()
-        mDb = AppDatabase.getInstance(this@ShowPlayerActivity)
+        valID = intent.getStringExtra("valID").toString()
+        Log.d("VAL_ID", valID)
+
+        mDb = AppDatabase.getInstance(this@HistoryActivity)
         binding.rvShowPlayer.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         fetchData()
-
-        binding.fab.setOnClickListener { view ->
-            startActivity(Intent(this, AddPlayerActivity::class.java))
-        }
     }
 
     override fun onBackPressed() {
@@ -38,18 +38,13 @@ class ShowPlayerActivity : AppCompatActivity() {
         finish()
     }
 
-    override fun onResume() {
-        super.onResume()
-        fetchData()
-    }
-
     fun fetchData(){
         GlobalScope.launch {
-            val listPlayer = mDb?.playerDao()?.getAllPlayer()
+            val listSuit = mDb?.suitDao()?.findSuitbyPlayer(valID.toInt())
 
             runOnUiThread{
-                listPlayer?.let {
-                    val adapter = ShowPlayerAdapter(it)
+                listSuit?.let {
+                    val adapter = ShowHistoryAdapter(it)
                     binding.rvShowPlayer.adapter = adapter
                 }
             }

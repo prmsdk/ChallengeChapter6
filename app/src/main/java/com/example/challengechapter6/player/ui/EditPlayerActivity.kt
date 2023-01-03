@@ -7,8 +7,8 @@ import android.view.View
 import android.widget.Toast
 import com.example.challengechapter6.databinding.ActivityEditPlayerBinding
 import com.example.challengechapter6.helper.SessionManager
-import com.example.challengechapter6.model.AppDatabase
-import com.example.challengechapter6.model.player.PlayerEntity
+import com.example.challengechapter6.dao.AppDatabase
+import com.example.challengechapter6.dao.player.PlayerEntity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 

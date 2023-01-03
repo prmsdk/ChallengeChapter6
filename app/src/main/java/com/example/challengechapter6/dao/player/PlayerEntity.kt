@@ -1,4 +1,4 @@
-package com.example.challengechapter6.model.player
+package com.example.challengechapter6.dao.player
 
 import android.os.Parcel
 import android.os.Parcelable

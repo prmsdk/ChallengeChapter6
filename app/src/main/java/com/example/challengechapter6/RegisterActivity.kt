@@ -7,14 +7,18 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
 import com.example.challengechapter6.databinding.ActivityRegisterBinding
-import com.example.challengechapter6.model.AppDatabase
-import com.example.challengechapter6.model.player.PlayerEntity
+import com.example.challengechapter6.dao.AppDatabase
+import com.example.challengechapter6.dao.player.PlayerEntity
+import com.example.challengechapter6.player.PlayerModel
+import com.example.challengechapter6.player.PlayerPresenterImp
+import com.example.challengechapter6.player.PlayerView
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity(), PlayerView {
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var playerPresenter: PlayerPresenterImp
     var mDb: AppDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +29,7 @@ class RegisterActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
         mDb = AppDatabase.getInstance(this@RegisterActivity)
+        playerPresenter = PlayerPresenterImp(this)
 
         binding.btnLogin?.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
@@ -75,5 +80,20 @@ class RegisterActivity : AppCompatActivity() {
                 finish()
             }
         }
+    }
+
+    override fun showMessage(message: String) {
+        Toast.makeText(this@RegisterActivity, message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun showData(data: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun clearField() {
+        binding.etName.setText("")
+        binding.etEmail.setText("")
+        binding.etPassword.setText("")
+        binding.etRepassword.setText("")
     }
 }

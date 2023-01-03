@@ -9,10 +9,14 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.challengechapter6.dao.AppDatabase
+import com.example.challengechapter6.dao.player.PlayerEntity
+import com.example.challengechapter6.dao.suit.SuitEntity
 import com.example.challengechapter6.databinding.ActivityVsComBinding
 import com.example.challengechapter6.databinding.CustomDialogBinding
-import com.example.challengechapter6.model.AppDatabase
-import com.example.challengechapter6.model.player.PlayerEntity
+import com.example.challengechapter6.player.ui.ShowPlayerActivity
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
 import kotlin.system.exitProcess
 
 class VsComActivity : AppCompatActivity() {
@@ -24,6 +28,8 @@ class VsComActivity : AppCompatActivity() {
     var HASIL_GAME = "HASIL_GAME"
     var pilihanPlayer1: String = ""
     var valName: String = ""
+    var valID: String = ""
+    var mDb: AppDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +38,10 @@ class VsComActivity : AppCompatActivity() {
         setContentView(view)
 
         supportActionBar?.hide()
+        mDb = AppDatabase.getInstance(this@VsComActivity)
 
         valName = intent.getStringExtra("valName").toString()
+        valID = intent.getStringExtra("valID").toString()
 
         binding.tvPlayer1.text = valName
         binding.tvPlayer2.text = "Player 2"
@@ -119,7 +127,7 @@ class VsComActivity : AppCompatActivity() {
         } else if ((pilihan1 == "gunting" && pilihan2 == "kertas") ||
             (pilihan1 == "batu" && pilihan2 == "gunting") ||
             (pilihan1 == "kertas" && pilihan2 == "batu")) {
-            resultGame("Player 1 Menang", "#4CAF50", 20F, "$valName\n Menang!")
+            resultGame("$valName Menang", "#4CAF50", 20F, "$valName\n Menang!")
         } else if ((pilihan1 == "batu" && pilihan2 == "kertas") ||
             (pilihan1 == "kertas" && pilihan2 == "gunting") ||
             (pilihan1 == "gunting" && pilihan2 == "batu")) {
@@ -127,12 +135,35 @@ class VsComActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun resultGame(msg: String, color: String, fontSize: Float, dialogDesc: String ){
         Log.d(HASIL_GAME, msg)
         binding.textMiddle.text = msg
         binding.textMiddle.setTextColor(Color.parseColor(color))
         binding.textMiddle.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
         showDialog(dialogDesc, valName)
+        saveResultSuit(msg, valID)
+    }
+
+    private fun saveResultSuit(msg:String, valID: String){
+        val objectSuit = SuitEntity(
+            null,
+            valID.toInt(),
+            "VsCom",
+            msg,
+        )
+
+        GlobalScope.async {
+            val result = mDb?.suitDao()?.insertSuit(objectSuit)
+            runOnUiThread{
+                if (result != 0.toLong()){
+                    Log.d("OPERATION SUIT", "Sukses save suit")
+                }else{
+                    Log.d("OPERATION SUIT", "Gagal save suit")
+                }
+            }
+        }
     }
 
     fun showDialog(deskripsi: String, valName: String){

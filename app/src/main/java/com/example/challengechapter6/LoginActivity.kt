@@ -8,10 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.challengechapter6.databinding.ActivityLoginBinding
 import com.example.challengechapter6.helper.SessionManager
-import com.example.challengechapter6.model.AppDatabase
+import com.example.challengechapter6.dao.AppDatabase
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -54,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
         GlobalScope.async {
             val result = mDb?.playerDao()?.findPlayer(binding.etEmail?.text.toString(), binding.etPassword?.text.toString())
             runOnUiThread{
-                if (result != null){
+                if (!result.isNullOrEmpty()){
                     Toast.makeText(this@LoginActivity, "Selamat Datang " + result[0].name, Toast.LENGTH_LONG).show()
                     sessionManager.createSession(result[0].id.toString(), result[0].email, result[0].name)
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
@@ -62,7 +63,6 @@ class LoginActivity : AppCompatActivity() {
                 }else{
                     Toast.makeText(this@LoginActivity, "Email dan Password Salah", Toast.LENGTH_LONG).show()
                 }
-                finish()
             }
         }
     }

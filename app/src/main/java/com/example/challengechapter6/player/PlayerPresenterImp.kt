@@ -1,6 +1,8 @@
 package com.example.challengechapter6.player
 
 import android.text.TextUtils
+import com.example.challengechapter6.dao.AppDatabase
+import com.example.challengechapter6.dao.player.PlayerEntity
 
 class PlayerPresenterImp(private val view: PlayerView): PlayerPresenter {
 
@@ -14,7 +16,7 @@ class PlayerPresenterImp(private val view: PlayerView): PlayerPresenter {
             if (!TextUtils.equals(password, repassword)){
                 view.showMessage("Konfirmasi ulang penulisan password")
             }else{
-                view.showMessage("Ingin menambahkan data")
+                view.clearField()
             }
         }
     }
